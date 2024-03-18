@@ -1,0 +1,78 @@
+// Media Queries break points
+1280-1024   - desktop (default grid)
+1024-768    - tablet landscape 
+768-480     - tablet
+480-less    - phone landscape & smaller
+
+#################
+Basic Page Reset
+#################
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Nunito';
+    color: #f9f7f6;
+    font-weight: 300;
+}
+
+#########################
+Grid Properties
+#########################
+
+// Parent Properties
+1 - display: grid;
+2 - grid-template-rows
+3 - grid-template-columns
+4 - grid-row-gap
+5 - grid-column-gap
+6 - gap: <grid-row-gap> <grid-column-gap>
+7 - justify-items: start | end | center | stretch;
+8 - align-items: start | end | center | stretch;
+9 - justify-content: start | end | center | stretch | space-around | space-between;
+10 - align-content: start | end | center | stretch | space-around | space-between;
+
+// Child Properties
+1 - grid-column-start
+2 - grid-column-end
+
+3 - gird-row-start
+4 - grid-row-end
+
+5 - justify-self: start | end | center | stretch;
+6 - align-self: start | end | center | stretch;
+
+
+########################################
+CSS Grids - Building the overall layout.
+########################################
+
+1- Make a container a place each section inside the container one by one.
+2- One row can have two or more sections.
+3- Give each section a color so that the sections can be distinctive.
+
+.container {
+    display: grid;
+    grid-template-rows: 80vh min-content/auto 40vw min-content min-content min-content;
+    // grid-template-rows: 80vh min-content/auto 40vw repeat(3, min-content);
+    grid-template-columns: repeat(8, 1fr);
+    // grid-template-columns: [ sidebar-start ] 8rem [ sidebar-end full-start ] 1fr [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] 1fr [full-end];
+}
+
+4- Now go to each section a start adding the grid columns which the shall lie inside.
+
+.sidebar {
+    grid-column: sidebar-start / sidebar-end;
+    grid-row: 1 / -1; // Sidebar is to occupy all the rows from start to the finish.
+}

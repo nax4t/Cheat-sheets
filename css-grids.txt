@@ -74,5 +74,8 @@ CSS Grids - Building the overall layout.
 
 .sidebar {
     grid-column: sidebar-start / sidebar-end;
-    grid-row: 1 / -1; // Sidebar is to occupy all the rows from start to the finish.
+    grid-row: 1 / -1; // Sidebar is to occupy all the rows from start to the finish. (Only works with an implicit gird not with explicit - when working with explicit use span.)
 }
+
+5- implicit grid / explicit grid : when we define the grid rows as well as the columns its implicit grid, when we only define the columns it explicit grid.
+6- 
